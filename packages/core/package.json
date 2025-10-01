@@ -2,7 +2,8 @@
   "name": "@ultrasocket/core",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "description": "UltraSocket core - High-performance WebSocket server",
   "keywords": [
     "websocket",
@@ -11,15 +12,28 @@
     "performance",
     "uwebsockets"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "author": "Jason Michel YT",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node --format esm && bun run typecheck",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/test/index.test.ts"
+  },
   "dependencies": {
     "superjson": "^2.2.2",
     "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.52.0"
   },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
   "peerDependencies": {
     "typescript": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6"
   }
 }

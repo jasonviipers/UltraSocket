@@ -1,6 +1,6 @@
 import type { WebSocket } from "uWebSockets.js"
-import { encodeMessage } from "./protocol.js"
-import type { SocketData, UltraSocket, MessageData } from "./types/index.js"
+import { encodeMessage } from "./protocol"
+import type { SocketData, UltraSocket, MessageData } from "./types"
 
 export function createUltraSocket(ws: WebSocket<SocketData>, binaryProtocol: boolean): UltraSocket {
     const socketData = ws.getUserData()
