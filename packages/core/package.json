@@ -1,0 +1,25 @@
+{
+  "name": "@ultrasocket/core",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "description": "UltraSocket core - High-performance WebSocket server",
+  "keywords": [
+    "websocket",
+    "realtime",
+    "ultrasocket",
+    "performance",
+    "uwebsockets"
+  ],
+  "author": "Jason Michel YT",
+  "dependencies": {
+    "superjson": "^2.2.2",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.52.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "latest"
+  }
+}
