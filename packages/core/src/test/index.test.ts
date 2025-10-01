@@ -1,50 +1,51 @@
-import { describe, it } from 'node:test';
-import assert from 'node:assert/strict';
-import { UltraServer } from "../server";
-import { decodeMessage, encodeMessage } from "../protocol";
+import { describe, test } from "node:test"
+import { expect } from "chai"
+import { UltraServer } from "../server"
+import { encodeMessage, decodeMessage } from "../protocol"
 
 describe("UltraServer", () => {
-  it("should create server instance", () => {
-    const server = new UltraServer({ port: 3000 });
-    assert(server !== undefined && server !== null);
-  });
+  test("should create server instance", () => {
+    const server = new UltraServer({ port: 3000 })
+    expect(server).to.not.be.undefined
+    expect(server).to.not.be.null
+  })
 
-  it("should register event handlers", () => {
-    const server = new UltraServer({ port: 3000 });
-    const handler = () => {};
-    server.on("test", handler);
-    assert(server !== undefined && server !== null);
-  });
+  test("should register event handlers", () => {
+    const server = new UltraServer({ port: 3000 })
+    const handler = () => {}
+    server.on("test", handler)
+    expect(server).to.not.be.undefined
+  })
 
-  it("should get initial stats", () => {
-    const server = new UltraServer({ port: 3000 });
-    const stats = server.getStats();
-    assert.strictEqual(stats.connections, 0);
-    assert.strictEqual(stats.messagesReceived, 0);
-    assert.strictEqual(stats.messagesSent, 0);
-  });
-});
+  test("should get initial stats", () => {
+    const server = new UltraServer({ port: 3000 })
+    const stats = server.getStats()
+    expect(stats.connections).to.equal(0)
+    expect(stats.messagesReceived).to.equal(0)
+    expect(stats.messagesSent).to.equal(0)
+  })
+})
 
 describe("Protocol", () => {
-  it("should encode and decode messages", () => {
-    const event = "test";
-    const data = { hello: "world", count: 42 };
+  test("should encode and decode messages", () => {
+    const event = "test"
+    const data = { hello: "world", count: 42 }
 
-    const encoded = encodeMessage(event, data);
-    const decoded = decodeMessage(encoded);
+    const encoded = encodeMessage(event, data)
+    const decoded = decodeMessage(encoded)
 
-    assert.strictEqual(decoded.event, event);
-    assert.deepStrictEqual(decoded.data, data);
-  });
+    expect(decoded.event).to.equal(event)
+    expect(decoded.data).to.deep.equal(data)
+  })
 
-  it("should handle empty data", () => {
-    const event = "ping";
-    const data = undefined;
+  test("should handle empty data", () => {
+    const event = "ping"
+    const data = undefined
 
-    const encoded = encodeMessage(event, data);
-    const decoded = decodeMessage(encoded);
+    const encoded = encodeMessage(event, data)
+    const decoded = decodeMessage(encoded)
 
-    assert.strictEqual(decoded.event, event);
-    assert.strictEqual(decoded.data, undefined);
-  });
-});
+    expect(decoded.event).to.equal(event)
+    expect(decoded.data).to.be.undefined
+  })
+})

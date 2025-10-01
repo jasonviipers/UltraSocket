@@ -27,7 +27,7 @@ Tired of WebSocket solutions that choke at scale? UltraSocket is built different
 | Package | Description | Version |
 |---------|-------------|---------|
 | [`@ultrasocket/core`](./packages/core) | The engine - C++ performance with JS DX | ![npm](https://img.shields.io/npm/v/@ultrasocket/core) |
-| [`@ultrasocket/client`](./packages/client) | Browser/Node.js client (coming soon) | ![npm](https://img.shields.io/npm/v/@ultrasocket/client) |
+| [`@ultrasocket/client`](./packages/client) |  Universal client that reconnects before you notice| ![npm](https://img.shields.io/npm/v/@ultrasocket/client) |
 | [`@ultrasocket/cluster`](./packages/cluster) | Redis-based clustering (coming soon) | ![npm](https://img.shields.io/npm/v/@ultrasocket/cluster) |
 | [`@ultrasocket/rooms`](./packages/rooms) | Room management (coming soon) | ![npm](https://img.shields.io/npm/v/@ultrasocket/rooms) |
 | [`@ultrasocket/auth`](./packages/auth) | Authentication middleware (coming soon) | ![npm](https://img.shields.io/npm/v/@ultrasocket/auth) |

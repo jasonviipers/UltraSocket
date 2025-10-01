@@ -1,0 +1,40 @@
+{
+  "name": "@ultrasocket/client",
+  "version": "0.1.0",
+  "description": "UltraSocket client - High-performance WebSocket client for browser and Node.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "keywords": [
+    "websocket",
+    "socket",
+    "client",
+    "realtime",
+    "browser",
+    "nodejs"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target browser --format esm && bun run typecheck",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/test/index.test.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/chai": "^5.2.2",
+    "@types/node": "^24.6.1",
+    "chai": "^6.2.0",
+    "tsx": "^4.20.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "superjson": "^2.2.2"
+  }
+}
